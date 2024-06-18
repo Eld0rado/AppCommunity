@@ -24,16 +24,16 @@ def load_and_preprocess_image(file):
     return img
 
 # Interface utilisateur Streamlit
-st.title('Dog Breed Classifier')
-st.write('Upload an image of a dog and the model will predict the breed.')
+st.title('Classification canine')
+st.write('Transmettre une image de chien pour une prédiction de la race.')
 
-uploaded_file = st.file_uploader("Choose a dog image...", type="jpg")
+uploaded_file = st.file_uploader("Choisir l'image pour la classification...", type="jpg")
 
 if uploaded_file is not None:
     # Afficher l'image chargée
     img = load_and_preprocess_image(uploaded_file)
     st.image(img, caption='Uploaded Image.', use_column_width=True)
-    st.write("Classifying...")
+    st.write("Traitement en cours...")
     
     # Prétraiter l'image
     img_array = image.img_to_array(img)
@@ -45,4 +45,4 @@ if uploaded_file is not None:
     predicted_breed = dog_breeds[predicted_index]
     
     # Afficher la prédiction
-    st.write(f'The predicted breed is: {predicted_breed}')
+    st.write(f'Retour: {predicted_breed}')
